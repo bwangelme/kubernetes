@@ -311,6 +311,7 @@ func validateConcurrencyPolicy(concurrencyPolicy *batch.ConcurrencyPolicy, fldPa
 	return allErrs
 }
 
+// 在这里 k8s 检查了 cron Schedule 的格式
 func validateScheduleFormat(schedule string, fldPath *field.Path) field.ErrorList {
 	allErrs := field.ErrorList{}
 	if _, err := cron.ParseStandard(schedule); err != nil {
